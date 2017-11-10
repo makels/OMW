@@ -2,11 +2,11 @@
 <settings>
   <!-- Database settings  -->
   <database>
-    <host>localhost</host>
+    <host>host</host>
     <port>3306</port>
-    <name>database</name>
-    <user>user</user>
-    <pass>password</pass>
+    <name>dbname</name>
+    <user>dbuser</user>
+    <pass>dbpass</pass>
   </database>
 
   <view><color>blue</color></view>
