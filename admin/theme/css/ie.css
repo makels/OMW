@@ -1,0 +1,11 @@
+img {
+	border: 0;
+}
+
+.fa {
+	display: none;
+}
+
+input[type=radio] {
+	border: 0;
+}

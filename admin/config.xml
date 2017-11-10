@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<settings>
+  <!-- Database settings  -->
+  <database>
+    <host>localhost</host>
+    <port>3306</port>
+    <name>admin_bulag</name>
+    <user>admin_bulag</user>
+    <pass>Wsf7blFp1c</pass>
+  </database>
+
+  <view><color>blue</color></view>
+
+</settings>

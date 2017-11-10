@@ -1,0 +1,1 @@
+Proj4js.defs["ESRI:1111"] = "+title=EquidistantConic +proj=eqdc +lat_0=48 +lon_0=31 +lat_1=48 +lat_2=48 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";

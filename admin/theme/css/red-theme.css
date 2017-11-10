@@ -1,0 +1,105 @@
+.header {
+  height: 70px;
+  border: 1px solid #9b0c00;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 15px;
+}
+
+.gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d11b00+0,ff0505+75,ff5656+100 */
+  background: #d11b00; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d11b00 0%, #ff0505 75%, #ff5656 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #d11b00 0%,#ff0505 75%,#ff5656 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #d11b00 0%,#ff0505 75%,#ff5656 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d11b00', endColorstr='#ff5656',GradientType=0 ); /* IE6-9 */
+
+  color: #fff;
+}
+
+.login-window {
+  border: 1px solid #d11b00;
+}
+
+.login-window-body input {
+  color: #d11b00 !important;
+}
+
+.field-v .fa {
+  color: #d11b00;
+}
+
+input, select, textarea {
+  padding: 5px;
+  border: 1px solid #9b0c00;
+  border-radius: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border: 1px solid #9b0c00;
+  float: left;
+  background-color: #ff0505;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.module-title {
+  line-height: 30px;
+  padding-left: 10px;
+  border-left: 1px solid #9b0c00;
+  border-right: 1px solid #9b0c00;
+  border-top: 1px solid #9b0c00;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.module .fields_group {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-bottom: 10px;
+  color: #9b0c00;
+  border-bottom: 1px dotted #9b0c00;
+}
+
+.menu ul li.active a {
+  color: #9b0c00;
+  font-weight: bold;
+}
+
+.module a:hover {
+  color: #9b0c00;
+}
+
+.users.module table td a {
+  color: #9b0c00;
+}
+
+a.btn {
+  padding: 5px 10px;
+  border: 1px solid #9b0c00;
+  float: left;
+  background-color: #ff0505;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 15px;
+  margin-right: 10px;
+}
+
+.search_filter a {
+  color: #9b0c00;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.login .field .fa {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  color: #9b0c00;
+}
