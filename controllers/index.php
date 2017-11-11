@@ -8,7 +8,6 @@
 Class Controller_Index Extends Controller_Base {
 
   function index() {
-    $smarty = $this->registry->get("smarty");
     $this->display();
   }
 

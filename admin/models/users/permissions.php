@@ -8,9 +8,9 @@
 
 Class Model_Permissions extends DB {
 
-  private $table = "`tz_permissions`";
+  private $table = "`users_permissions`";
 
-  private $groups_permissions = "`tz_groups_permissions`";
+  private $groups_permissions = "`users_groups_permissions`";
 
   public function getPermissions() {
     return $this->getRows("SELECT * FROM " . $this->table . " ORDER BY `name`");

@@ -2,11 +2,11 @@
 <settings>
   <!-- Database settings  -->
   <database>
-    <host>host</host>
+    <host>mysql.zzz.com.ua</host>
     <port>3306</port>
-    <name>dbname</name>
-    <user>dbuser</user>
-    <pass>dbpass</pass>
+    <name>zergsolutions</name>
+    <user>admin_zerg</user>
+    <pass>346hKJ4h747h5k7</pass>
   </database>
 
   <view><color>blue</color></view>

@@ -15,8 +15,9 @@ Class Config {
       $this->config_xml = simplexml_load_file(ROOT_PATH . "config.xml");
   }
 
-  function get($path) {
-    $val = end(explode("/", $path));
+  function get($path = "") {
+    $arr = explode("/", $path);
+    $val = end($arr);
     $path = str_replace("/".$val, "", $path);
     $res = $this->config_xml->xpath($path);
     return $res[0]->$val;

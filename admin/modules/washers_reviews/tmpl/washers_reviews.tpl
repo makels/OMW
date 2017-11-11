@@ -1,5 +1,5 @@
 <div class="products module">
-    <div class="module-title gradient">Отзывы о мойщиках</div>
+    <div class="module-title gradient">Отзывы об исполнителях</div>
     <div class="module-wrapper">
         <form id="orders_form" action="/admin/washers_reviews" method="post">
             <input type="hidden" name="action" id="form_action" value="delete">
@@ -13,7 +13,7 @@
                 <th style="padding-left: 10px;"><span class="fa fa-check-square-o">&nbsp;</span></th>
                 <th>Дата</th>
                 <th>Клиент</th>
-                <th>Мойщик</th>
+                <th>Исполнитель</th>
                 <th>Оценка</th>
                 <th>Отзыв</th>
                 <th>Опубликован</th>

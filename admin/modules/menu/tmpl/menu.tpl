@@ -7,7 +7,7 @@
         <li {if $page == "clients"} class="active" {/if}><a href="/admin/clients">{fa_icon name="hand-o-right"}Клиенты</a></li>
       {/if}
       {if $user->has_permission("washers")}
-        <li {if $page == "washers"} class="active" {/if}><a href="/admin/washers">{fa_icon name="hand-o-right"}Мойщики</a></li>
+        <li {if $page == "washers"} class="active" {/if}><a href="/admin/washers">{fa_icon name="hand-o-right"}Исполнители</a></li>
       {/if}
       {if $user->has_permission("orders")}
         <li {if $page == "orders"} class="active" {/if}><a href="/admin/orders">{fa_icon name="hand-o-right"}Заявки</a></li>
@@ -18,7 +18,7 @@
           {fa_icon name="hand-o-right"}<span>Управление отзывами</span>
           <ul>
             <li {if $page == "clients_reviews"} class="active" {/if}><a href="/admin/clients_reviews">{fa_icon name="caret-right"}Отзывы о клиентах</a></li>
-            <li {if $page == "washers_reviews"} class="active" {/if}><a href="/admin/washers_reviews">{fa_icon name="caret-right"}Отзывы о мойщиках</a></li>
+            <li {if $page == "washers_reviews"} class="active" {/if}><a href="/admin/washers_reviews">{fa_icon name="caret-right"}Отзывы о исполнителях</a></li>
           </ul>
         </li>
       {/if}

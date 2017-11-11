@@ -1,1 +1,1 @@
-<div class="logo">Brilliant Ulag</div>
+<div class="logo">OnMyWay</div>

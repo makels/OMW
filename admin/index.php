@@ -1,23 +1,17 @@
 <?php
 session_start();
-
-
-ini_set('error_reporting', E_ERROR);
+ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
-// PATH
 define ('DIRSEP', DIRECTORY_SEPARATOR);
-define ('SITE_PATH', realpath(dirname(__FILE__)) . DIRSEP);
 define ('ROOT_PATH', realpath($_SERVER["DOCUMENT_ROOT"]) . DIRSEP);
-define ('MODELS_PATH', SITE_PATH . "models" . DIRSEP);
-define ('MODULES_PATH', SITE_PATH . "modules" . DIRSEP);
-define ('TMPL_PATH', SITE_PATH . "views" . DIRSEP);
+define ('SITE_PATH', ROOT_PATH . "admin" . DIRSEP);
 
+require_once SITE_PATH . "startup.php";
 if(is_dir(SITE_PATH."tmp") === false) mkdir(SITE_PATH."tmp");
 
-require "startup.php";
-
-$smarty = new Smarty;
+$registry = new Registry();
+$smarty = new Smarty();
 $smarty->compile_check = true;
 $smarty->debugging = false;
 $registry->set ('smarty', $smarty);

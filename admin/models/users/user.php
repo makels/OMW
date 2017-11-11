@@ -8,7 +8,7 @@
 
 Class Model_User extends DB {
 
-  private $table = "`tz_members`";
+  private $table = "`users`";
 
   public function get($id) {
     $user = $this->getRow("SELECT * FROM ".$this->table . " WHERE `id` = " . $id);
@@ -40,9 +40,9 @@ Class Model_User extends DB {
   }
 
   public function get_permissions($id) {
-    return $this->getRows("SELECT gu.group_id, gp.permission_id, p.name, p.alias FROM `tz_groups_users` gu
-                    LEFT JOIN `tz_groups_permissions` gp ON gu.group_id = gp.group_id
-                    LEFT JOIN `tz_permissions` p ON p.id = gp.permission_id
+    return $this->getRows("SELECT gu.group_id, gp.permission_id, p.name, p.alias FROM `users_groups` gu
+                    LEFT JOIN `users_groups_permissions` gp ON gu.group_id = gp.group_id
+                    LEFT JOIN `users_permissions` p ON p.id = gp.permission_id
                     WHERE gu.user_id = " . $id);
   }
 

@@ -69,7 +69,7 @@
       <a href="/admin/washers">
         <div class="icon-wrapper">
           <img src="/admin/theme/images/icons/washers.png" />
-          <span>Мойщики</span>
+          <span>Исполнители</span>
         </div>
       </a>
     {/if}
@@ -87,7 +87,7 @@
       <a href="/admin/washers_reviews">
         <div class="icon-wrapper">
           <img src="/admin/theme/images/icons/washers_reviews.png" />
-          <span>Отзывы о мойщиках</span>
+          <span>Отзывы о исполнителях</span>
         </div>
       </a>
     {/if}

@@ -3,13 +3,13 @@
 </script>
 
 <div class="products module">
-    <div class="module-title gradient">Мойщики</div>
+    <div class="module-title gradient">Исполнители</div>
     <div class="module-wrapper">
         <form id="orders_form" action="/admin/washers" method="post">
             <input type="hidden" name="action" id="form_action" value="save">
             <div class="buttons-wrapper">
-                <button type="submit" onclick="$('#form_action').val('create');">{fa_icon name="user-plus"}Добавить мойщика</button>
-                <button type="submit" onclick="$('#form_action').val('delete');">{fa_icon name="user-times"}Удалить мойщика</button>
+                <button type="submit" onclick="$('#form_action').val('create');">{fa_icon name="user-plus"}Добавить исполнителя</button>
+                <button type="submit" onclick="$('#form_action').val('delete');">{fa_icon name="user-times"}Удалить исполнителя</button>
                 <button type="button" onclick="modalMap.openWashers(WashersList);return false;">{fa_icon name="map"}Показать на карте</button>
             </div>
             <table class="products_list" cellpadding="0" cellspacing="0">

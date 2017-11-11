@@ -1,6 +1,6 @@
 <script src="/admin/modules/washers/js/washers.js"></script>
 <div class="product module">
-    <div class="module-title gradient">Клиент</div>
+    <div class="module-title gradient">Исполнитель</div>
     <div class="module-wrapper">
         {if !$user->has_permission("washers")}
             У Вас недостаточно прав для работы с данным режимом

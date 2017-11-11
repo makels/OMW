@@ -51,7 +51,8 @@ Class DB {
   }
 
   public static function loadModel($model) {
-    $class_name = ucfirst(end(explode("/", $model)));
+    $t = explode("/", $model);
+    $class_name = ucfirst(end($t));
     $model_file = MODELS_PATH.mb_strtolower($model).".php";
     $model_name = "Model_".$class_name;
     if(file_exists($model_file)) {

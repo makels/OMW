@@ -45,7 +45,8 @@ Abstract Class Controller_Base {
   }
 
   function registerModule($name, $position) {
-    $class_name = ucfirst(end(explode("/", $name)));
+    $r = explode("/", $name);
+    $class_name = ucfirst(end($r));
     $module_file = MODULES_PATH.mb_strtolower($name).".php";
     $module_name = "Module_".$class_name;
     if(file_exists($module_file)) {

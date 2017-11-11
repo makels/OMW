@@ -8,9 +8,9 @@
 
 Class Model_Groups extends DB {
 
-  private $table = "`tz_groups`";
+  private $table = "`groups`";
 
-  private $groups_users_table = "`tz_groups_users`";
+  private $groups_users_table = "`users_groups`";
 
   public function get($id) {
     return $this->getRow("SELECT * FROM " . $this->table . " WHERE `id` = " . $id);

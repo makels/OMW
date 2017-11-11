@@ -8,7 +8,7 @@
 
 Class Model_Users extends DB {
 
-  private $table = "`tz_members`";
+  private $table = "`users`";
 
   public function getUsers() {
     return $this->getRows("SELECT * FROM " . $this->table . " ORDER BY `display_name`");

@@ -11,8 +11,7 @@ Class Model_Clients extends DB {
     public function getAll() {
         $clients = $this->getRows("SELECT * FROM `clients` ORDER BY `name`");
         for($i = 0; $i < count($clients); $i++) {
-            $current_wash_count = $this->getRow(sprintf("SELECT count(*) as cnt FROM `orders` WHERE `user_id` = %s AND `status` = 3 AND `date_time` > date_format(`date_time`, '%Y%m') = date_format(now(), '%Y%m')",
-                $clients[$i]["id"]));
+            $current_wash_count = $this->getRow("SELECT count(*) as cnt FROM `orders` WHERE `user_id` = " . $clients[$i]["id"] . " AND `status` = 3 AND `date_time` > date_format(`date_time`, '%Y%m') = date_format(now(), '%Y%m')");
             $wash_count = $this->getRow(sprintf("SELECT count(*) as cnt FROM `orders` WHERE `user_id` = %s AND `status` = 3",
                 $clients[$i]["id"]));
             $clients[$i]["current_wash_count"] = $current_wash_count > 0 ? $current_wash_count : 0;
