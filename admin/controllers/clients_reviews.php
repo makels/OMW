@@ -12,7 +12,7 @@ Class Controller_Clients_Reviews Extends Controller_Base
     {
         $smarty = $this->registry->get("smarty");
         $user = $this->registry->get("user");
-
+        if(!$user->is_admin()) Http::redirect("/admin");
         if ($user->is_admin()) {
             $this->registerModule("menu/menu", "left_side");
             $this->registerModule("clients_reviews/clients_reviews", "center_side");
@@ -26,7 +26,7 @@ Class Controller_Clients_Reviews Extends Controller_Base
     function edit() {
         $smarty = $this->registry->get("smarty");
         $user = $this->registry->get("user");
-
+        if(!$user->is_admin()) Http::redirect("/admin");
         if($user->is_admin()) {
             $this->registerModule("menu/menu", "left_side");
             $this->registerModule("clients_reviews/clients_reviews", "center_side");

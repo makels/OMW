@@ -10,6 +10,7 @@ Class Http {
 
   public static function redirect($url) {
     header("Location: ".$url, true, 302);
+    exit;
   }
 
   public static function unautorize() {
