@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 11 2017 г., 11:00
+-- Время создания: Ноя 11 2017 г., 11:55
 -- Версия сервера: 10.0.32-MariaDB-0+deb8u1
 -- Версия PHP: 7.1.11
 
@@ -31,16 +31,7 @@ CREATE TABLE `categories` (
   `parent_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
-
---
--- Дамп данных таблицы `categories`
---
-
-INSERT INTO `categories` (`id`, `parent_id`, `name`, `description`) VALUES
-(1, 0, 'Hero Pro', ''),
-(2, 0, 'Hero', ''),
-(3, 0, 'Arena', '');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -108,7 +99,7 @@ CREATE TABLE `news` (
   `date_time` datetime NOT NULL,
   `up_slider` varchar(255) NOT NULL,
   `down_slider` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -122,7 +113,7 @@ CREATE TABLE `options` (
   `type` varchar(255) NOT NULL,
   `excel_column` int(11) NOT NULL,
   `show` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -158,7 +149,7 @@ CREATE TABLE `orders` (
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `model` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -169,7 +160,7 @@ CREATE TABLE `products` (
 CREATE TABLE `products_category` (
   `category_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -184,7 +175,7 @@ CREATE TABLE `products_options` (
   `int_value` int(11) NOT NULL,
   `double_value` double NOT NULL,
   `bool_value` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
