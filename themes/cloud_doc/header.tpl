@@ -13,5 +13,6 @@
             </ul>
         </div>
     </div>
+    <div class="top-lang-info">{$select_lang}</div>
     <div class="top-user-info">{$current_user}</div>
 </header>

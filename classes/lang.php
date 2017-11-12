@@ -5,10 +5,18 @@ class Lang {
     public $default_prefix = "ru";
     
     public $prefix;
+
+    public $name;
     
     private $_model;
 
-    public $langs = array("ru", "en", "uk", "de", "fr");
+    public $langs = array(
+        "uk" => "Українська",
+        "ru" => "Русский",
+        "en" => "English",
+        "fr" => "Français",
+        "de" => "Deutsch"
+    );
 
     function __construct() {
         $this->prefix = isset($_SESSION["lang"]) ? $_SESSION["lang"] : $this->default_prefix; 
@@ -50,5 +58,4 @@ class Lang {
         $res = file_get_contents($uri, false, $context);
         return $res;
     }
-
 }

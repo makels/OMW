@@ -17,6 +17,14 @@ header {
     background-color: #4c80f3;
     height: 50px;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+header:hover {
+    opacity: 1 !important;
 }
 
 .content {
@@ -70,9 +78,45 @@ header {
     margin-right: 20px;
 }
 
+.top-lang-info {
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    float: right;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+.top-lang-info .top-languages-list {
+    display: none;
+    position: absolute;
+    width: 148px;
+    top: 50px;
+    padding: 10px 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.top-lang-info .top-languages-list.open {
+    display: block;
+}
+
+.top-lang-info .top-languages-list a {
+    color: #333;
+}
+
+.top-lang-info .top-languages-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 section.main-content {
     width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px 0;
     min-height: 1000px;
 }
@@ -80,4 +124,33 @@ section.main-content {
 footer {
     height: 200px;
     background-color: #4c80f3;
+}
+
+.flag {
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    padding: 0 40px;
+    line-height: 30px;
+}
+
+.flag-uk {
+    background-image: url(/themes/cloud_doc/images/flags/Ukraine.png);
+}
+
+.flag-ru {
+    background-image: url(/themes/cloud_doc/images/flags/Russia.png);
+}
+
+.flag-en {
+    background-image: url(/themes/cloud_doc/images/flags/United-Kingdom.png);
+}
+
+.flag-fr {
+    background-image: url(/themes/cloud_doc/images/flags/France.png);
+}
+
+.flag-de {
+    background-image: url(/themes/cloud_doc/images/flags/Germany.png);
 }

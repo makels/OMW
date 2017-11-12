@@ -77,9 +77,12 @@ Class Router {
     // Detect Lang
     if(count($parts) > 0) {
       $lang = $this->registry->get("lang");
-      if(in_array($parts[0], $lang->langs)) {
-        $lang->setLang($parts[0]);
-        unset($parts[0]);
+      foreach ($lang->langs as $prefix => $lang_name) {
+        if($prefix == $parts[0]) {
+          $lang->setLang($parts[0]);
+          unset($parts[0]);
+          break;
+        }
       }
     }
 
