@@ -8,7 +8,10 @@
 Class Controller_Index Extends Controller_Base {
 
   function index() {
-    $this->display();
+    $smarty = $this->registry->get("smarty");
+    $smarty->assign("current_user", $this->renderModule("user/current_user"));
+    $smarty->assign("page", "index");
+    $this->display("index");
   }
 
 }

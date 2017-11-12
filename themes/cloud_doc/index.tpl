@@ -7,9 +7,10 @@
     {* HEADER *}
     {include file="header.tpl"}
 
-  
     {* INDEX *}
+    <section class="main-content">
     {"Проверка"|lang}
+    </section>
 
     {* END OF INDEX*}
 

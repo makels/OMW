@@ -44,6 +44,19 @@ Abstract Class Controller_Base {
     return $content;
   }
 
+  function renderModule($name) {
+    $t = explode("/", $name);
+    $class_name = ucfirst(end($t));
+    $module_file = MODULES_PATH.mb_strtolower($name).".php";
+    $module_name = "Module_".$class_name;
+    if(file_exists($module_file)) {
+      require_once $module_file;
+      $module = new $module_name($this->registry);
+      return $module->render();
+    }
+    return "";
+  }
+
   function registerModule($name, $position) {
     $class_name = ucfirst(end(explode("/", $name)));
     $module_file = MODULES_PATH.mb_strtolower($name).".php";

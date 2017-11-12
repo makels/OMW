@@ -37,6 +37,9 @@ try {
 $lang = new Lang();
 $registry->set ('lang', $lang);
 
+$user = new User();
+$registry->set ('user', $user);
+
 $router = new Router($registry);
 $registry->set ('router', $router);
 
