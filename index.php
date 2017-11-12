@@ -34,6 +34,9 @@ try {
   $registry->set('dl', null);
 }
 
+$lang = new Lang();
+$registry->set ('lang', $lang);
+
 $router = new Router($registry);
 $registry->set ('router', $router);
 

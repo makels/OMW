@@ -50,7 +50,8 @@ Class DB {
     mysqli_stmt_execute($stmt);
   }
 
-  public static function loadModel($model) {
+  public static function loadModel($model = "") {
+    if($model == "") return null;
     $t = explode("/", $model);
     $class_name = ucfirst(end($t));
     $model_file = MODELS_PATH.mb_strtolower($model).".php";

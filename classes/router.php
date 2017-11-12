@@ -36,7 +36,9 @@ Class Router {
   {
     $route = !empty($_GET["route"]) ? $_GET["route"] : "";
     $parts = explode("/", $route);
+
     if(count($parts) > 0 && $parts[0] == "modules") {
+
       $this->getModule($file, $module, $action, $args);
       if (is_readable($file) == false) {
         die ('404 Not Found');
@@ -71,6 +73,16 @@ Class Router {
     if (empty($route)) { $route = 'index'; }
     $route = trim($route, '/\\');
     $parts = explode('/', $route);
+
+    // Detect Lang
+    if(count($parts) > 0) {
+      $lang = $this->registry->get("lang");
+      if(in_array($parts[0], $lang->langs)) {
+        $lang->setLang($parts[0]);
+        unset($parts[0]);
+      }
+    }
+
     $cmd_path = $this->path;
     foreach ($parts as $part) {
       $fullpath = $cmd_path . $part;

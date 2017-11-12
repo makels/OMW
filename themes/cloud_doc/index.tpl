@@ -9,9 +9,8 @@
 
   
     {* INDEX *}
+    {"Проверка"|lang}
 
-    INDEX
-    
     {* END OF INDEX*}
 
     {include file="footer.tpl"}
