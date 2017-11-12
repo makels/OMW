@@ -2,7 +2,7 @@
 <div class="top-languages-list">
     <ul>
         {foreach from=$languages key="key" item="item"}
-            <li><a href="/{$key}"><div class="flag flag-{$key}">&nbsp;{$item}</div></a></li>
+            <li><a href="/{$key}/{$current_url}"><div class="flag flag-{$key}">&nbsp;{$item}</div></a></li>
         {/foreach}
     </ul>
 </div>

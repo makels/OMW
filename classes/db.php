@@ -90,4 +90,8 @@ Class DB {
     return sprintf("%s-%s-%s", $res["year"], $res["month"], $res["day"]);
   }
 
+  public static function esc($str) {
+    return str_replace("'", "\'", $str);
+  }
+
 }

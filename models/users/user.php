@@ -8,7 +8,7 @@
 
 Class Model_User extends DB {
 
-  private $table = "`tz_members`";
+  private $table = "`users`";
 
   public function get($id) {
     $user = $this->getRow("SELECT * FROM ".$this->table . " WHERE `id` = " . $id);

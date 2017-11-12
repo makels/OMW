@@ -28,6 +28,11 @@ class Lang {
         $this->prefix = $prefix;
         $_SESSION["lang"] = $this->prefix;        
     }
+
+    public function url($url, $prefix = "") {
+        if($prefix == "") $prefix = $this->default_prefix;
+        return "/" . $prefix . $url;
+    }
     
     public function translate($str) {
         $tr = $this->_model->translate($str, $this->prefix);
@@ -46,16 +51,8 @@ class Lang {
 
     public function yandex_translate($str, $to) {
         $uri = sprintf(YA_TRANSLATE_URL, $this->default_prefix, $to);
-        $post_data = http_build_query(array("text" => $str));
-        $opts = array('http' =>
-            array(
-                'method'  => 'POST',
-                'header'  => 'Content-type: application/x-www-form-urlencoded',
-                'content' => $post_data
-            )
-        );
-        $context  = stream_context_create($opts);
-        $res = file_get_contents($uri, false, $context);
+        $data = array("text" => $str);
+        $res = Http::postRequest($uri, $data);
         return $res;
     }
 }

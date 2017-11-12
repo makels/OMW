@@ -37,4 +37,18 @@ Class Http {
     }
     return null;
   }
+
+  public static function postRequest($url, $data) {
+    $post_data = http_build_query($data);
+    $opts = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $post_data
+        )
+    );
+    $context  = stream_context_create($opts);
+    $res = file_get_contents($url, false, $context);
+    return $res;
+  }
 }

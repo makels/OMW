@@ -10,7 +10,7 @@ class Model_Lang extends DB {
 
     public function add($origin, $translate, $to) {
         $this->execute(sprintf("INSERT INTO `lang` (`orig`,`translate`,`lang`, `lang_group`) VALUES ('%s', '%s', '%s', '%s')",
-            $origin, $translate, $to, "yandex"));
+            $this->esc($origin), $this->esc($translate), $to, "yandex"));
     }
 
 }

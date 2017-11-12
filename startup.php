@@ -23,6 +23,10 @@ define ('DB_PASS', $config->get("/settings/database/pass"));
 // THEME
 define ('THEME_NAME', $config->get("/settings/view/theme"));
 
+// OTHER
+define ('RECAPTCHA_KEY', $config->get("/settings/recaptcha/public_key"));
+define ('RECAPTCHA_SECRET', $config->get("/settings/recaptcha/secret_key"));
+
 define ('UPLOAD_DIR', SITE_PATH . "uploads/");
 define ('CLASSES_DIR', SITE_PATH . "classes/");
 

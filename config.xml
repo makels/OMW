@@ -14,4 +14,9 @@
     <color>blue</color>
   </view>
 
+  <recaptcha>
+    <public_key>6LeJVzgUAAAAAPYpHBgpxhHXBtkdFIckKsiLwvtL</public_key>
+    <secret_key>6LeJVzgUAAAAAPJq4h9LFZJMp3G5hXc9Qva-UedF</secret_key>
+  </recaptcha>
+
 </settings>

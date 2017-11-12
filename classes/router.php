@@ -69,6 +69,7 @@ Class Router {
   }
 
   public function getController(&$file, &$controller, &$action, &$args) {
+    $smarty = $this->registry->get("smarty");
     $route = (empty($_GET['route'])) ? '' : $_GET['route'];
     if (empty($route)) { $route = 'index'; }
     $route = trim($route, '/\\');
@@ -85,6 +86,8 @@ Class Router {
         }
       }
     }
+
+    $smarty->assign("current_url", implode("/", $parts));
 
     $cmd_path = $this->path;
     foreach ($parts as $part) {

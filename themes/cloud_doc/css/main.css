@@ -14,7 +14,7 @@ a {
 }
 
 header {
-    background-color: #4c80f3;
+    background-color: #3b5998;
     height: 50px;
     color: #fff;
     position: fixed;
@@ -123,7 +123,7 @@ section.main-content {
 
 footer {
     height: 200px;
-    background-color: #4c80f3;
+    background-color: #3b5998;
 }
 
 .flag {
@@ -153,4 +153,57 @@ footer {
 
 .flag-de {
     background-image: url(/themes/cloud_doc/images/flags/Germany.png);
+}
+
+.btn {
+    margin-top: 23px;
+    margin-right: 20px;
+    background-color: #3b5998;
+    padding: 10px;
+    color: #fff !important;
+    float: left;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.field-info {
+    color: #777;
+    line-height: 40px;
+}
+
+.field label {
+    color: #777;
+}
+
+.field input {
+    width: 100%;
+    line-height: 30px;
+    border: none;
+    border-bottom: 1px solid #999;
+    font-size: 20px;
+    color: #333;
+    outline: none;
+}
+
+.register-form {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.g-recaptcha {
+    margin: 20px 0;
+}
+
+.errors-wrapper {
+    font-size: 14px;
+    line-height: 7px;
+    padding: 3px 15px;
+    background-color: #f75555;
+    color: #fff;
+    border-radius: 15px;
 }
