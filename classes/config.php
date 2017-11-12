@@ -20,11 +20,13 @@ Class Config {
     $val = end($arr);
     $path = str_replace("/".$val, "", $path);
     $res = $this->config_xml->xpath($path);
-    return $res[0]->$val;
+    $res = isset($res[0]) ? $res[0]->$val : "";
+    return $res;
   }
 
   function set($path, $value) {
-    $val = end(explode("/", $path));
+    $s = explode("/", $path);
+    $val = end($s);
     $path = str_replace("/".$val, "", $path);
     $res = $this->config_xml->xpath($path);
     if(count($res) == 0) {

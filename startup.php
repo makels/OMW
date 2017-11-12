@@ -19,6 +19,10 @@ define ('DB_PORT', $config->get("/settings/database/port"));
 define ('DB_NAME', $config->get("/settings/database/name"));
 define ('DB_USER', $config->get("/settings/database/user"));
 define ('DB_PASS', $config->get("/settings/database/pass"));
+
+// THEME
+define ('THEME_NAME', $config->get("/settings/view/theme"));
+
 define ('UPLOAD_DIR', SITE_PATH . "uploads/");
 define ('CLASSES_DIR', SITE_PATH . "classes/");
 

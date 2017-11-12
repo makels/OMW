@@ -38,16 +38,16 @@ Class DB {
   public function insert($sql) {
     global $registry;
     $link = $registry->get("dl");
-    $res = mysqli_query($link, $sql);
-    mysqli_stmt_execute($res);
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_execute($stmt);
     return $this->last_id();
   }
 
   public function execute($sql) {
     global $registry;
     $link = $registry->get("dl");
-    $res = mysqli_query($link, $sql);
-    mysqli_stmt_execute($res);
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_execute($stmt);
   }
 
   public static function loadModel($model) {

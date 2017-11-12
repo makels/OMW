@@ -10,15 +10,15 @@ define ('SITE_PATH', realpath(dirname(__FILE__)) . DIRSEP);
 define ('ROOT_PATH', realpath($_SERVER["DOCUMENT_ROOT"]) . DIRSEP);
 define ('MODELS_PATH', SITE_PATH . "models" . DIRSEP);
 define ('MODULES_PATH', SITE_PATH . "modules" . DIRSEP);
-define ('TMPL_PATH', SITE_PATH . "views" . DIRSEP);
-
 if(is_dir(SITE_PATH."tmp") === false) mkdir(SITE_PATH."tmp");
 
 require "startup.php";
 
+define ('TMPL_PATH', SITE_PATH . "themes" . DIRSEP . THEME_NAME . DIRSEP);
 $smarty = new Smarty;
 $smarty->compile_check = true;
 $smarty->debugging = false;
+$smarty->template_dir = TMPL_PATH;
 $registry->set ('smarty', $smarty);
 
 $template = new Template($registry);

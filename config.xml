@@ -9,6 +9,9 @@
     <pass>346hKJ4h747h5k7</pass>
   </database>
 
-  <view><color>blue</color></view>
+  <view>
+    <theme>cloud_doc</theme>
+    <color>blue</color>
+  </view>
 
 </settings>

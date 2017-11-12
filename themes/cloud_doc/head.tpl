@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>OMW</title>
+<title>CloudDoc</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 <link rel="stylesheet" href="/theme/css/reset.min.css" />
@@ -9,3 +9,4 @@
 
 <script src="/theme/js/jquery-1.11.3.min.js"></script>
 <script src="/theme/js/app.js"></script>
+<script src="/theme/js/utils.js"></script>

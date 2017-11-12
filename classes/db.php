@@ -38,20 +38,21 @@ Class DB {
   public function insert($sql) {
     global $registry;
     $link = $registry->get("dl");
-    $res = mysqli_query($link, $sql);
-    mysqli_stmt_execute($res);
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_execute($stmt);
     return $this->last_id();
   }
 
   public function execute($sql) {
     global $registry;
     $link = $registry->get("dl");
-    $res = mysqli_query($link, $sql);
-    mysqli_stmt_execute($res);
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_execute($stmt);
   }
 
   public static function loadModel($model) {
-    $class_name = ucfirst(end(explode("/", $model)));
+    $t = explode("/", $model);
+    $class_name = ucfirst(end($t));
     $model_file = MODELS_PATH.mb_strtolower($model).".php";
     $model_name = "Model_".$class_name;
     if(file_exists($model_file)) {
@@ -81,6 +82,11 @@ Class DB {
     $res = mysqli_multi_query($link, $sql);
 
     mysqli_stmt_execute($res);
+  }
+
+  public static function getSQLDate($date) {
+    $res = date_parse_from_format("d.m.Y", $date);
+    return sprintf("%s-%s-%s", $res["year"], $res["month"], $res["day"]);
   }
 
 }
