@@ -8,15 +8,47 @@
 
 Class Controller_Registration Extends Controller_Base {
 
+    public $breadcrumbs = array();
+
     function index() {
         $smarty = $this->registry->get("smarty");
         $lang = $this->registry->get("lang");
         $lang_prefix = $lang->prefix;
+
+        // Breadcrumbs
+        $breadcrumbs = array(
+            "home" => array("display" => $lang->translate("Главная"), "url" => "/"),
+            "registration" => array(
+                "display" => $lang->translate("Регистрация"),
+                "url" => $this->registry->get("lang")->prefix . "/registration",
+                "current" => 1)
+        );
+        $this->registry->set("breadcrumbs", $breadcrumbs);
+        // End breadcrumbs
+
+        $smarty->assign("breadcrumbs", $this->renderModule("breadcrumbs/breadcrumbs"));
         $smarty->assign("lang_prefix", $lang_prefix);
         $smarty->assign("current_user", $this->renderModule("user/current_user"));
         $smarty->assign("select_lang", $this->renderModule("lang/select_lang"));
         $smarty->assign("page", "registration");
+
         $errors = array();
+
+        if(isset($_POST['token'])) {
+            $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+            $user = json_decode($s, true);
+            $model = DB::loadModel("users/user");
+            $user = $model->add(array(
+                "login" => $user['network'] . "_" . $user['uid'],
+                "display_name" => $user['last_name'] . " " . $user['first_name'],
+                "pass" => "",
+                "email" => "",
+                "is_admin" => 0
+            ));
+            Http::redirect("/");
+            exit;
+        }
+
         if(Http::post("action") == "registration") $errors = $this->registration();
         $smarty->assign("errors", $errors);
         $this->display("registration");

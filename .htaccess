@@ -1,3 +1,7 @@
+order deny,allow
+deny from All
+allow from 91.233.90.34
+
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f

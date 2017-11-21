@@ -8,6 +8,8 @@
 
 Abstract Class Controller_Base {
 
+  public $breadcrumbs = array();
+
   protected $registry;
 
   protected $modules = array();

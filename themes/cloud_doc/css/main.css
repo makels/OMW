@@ -13,6 +13,10 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-color: #ddd;
+}
+
 header {
     background-color: #3b5998;
     height: 50px;
@@ -21,6 +25,10 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+}
+
+.header {
+    height: 50px;
 }
 
 header:hover {
@@ -114,11 +122,30 @@ header:hover {
     padding: 0;
 }
 
+.breadcrumbs-wrapper {
+    padding: 10px 20px;
+}
+
+.breadcrumbs-wrapper a {
+    color: #3b5998;
+}
+
+.breadcrumbs-wrapper ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.breadcrumbs-wrapper ul li {
+    float: left;
+}
+
 section.main-content {
-    width: 1200px;
-    margin: 50px auto;
+    width: 800px;
+    margin: 10px auto 20px auto;
     padding: 20px 0;
-    min-height: 1000px;
+    background-color: #fff;
+    box-shadow: 2px 2px 25px #777;
 }
 
 footer {
@@ -161,7 +188,6 @@ footer {
     background-color: #3b5998;
     padding: 10px;
     color: #fff !important;
-    float: left;
     border-radius: 5px;
     cursor: pointer;
     border: none;
@@ -206,4 +232,9 @@ footer {
     background-color: #f75555;
     color: #fff;
     border-radius: 15px;
+}
+
+#uLogin {
+    padding: 10px;
+    background-color: #ddd;
 }
