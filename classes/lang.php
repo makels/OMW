@@ -29,9 +29,8 @@ class Lang {
         $_SESSION["lang"] = $this->prefix;        
     }
 
-    public function url($url, $prefix = "") {
-        if($prefix == "") $prefix = $this->default_prefix;
-        return "/" . $prefix . $url;
+    public function url($url) {
+        return "/" . $this->prefix . $url;
     }
     
     public function translate($str) {

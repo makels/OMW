@@ -1,12 +1,12 @@
 <header>
     <div class="content">
-        <a href="/"><div class="top-logo">{fa_icon name="cloud"}Cloud<span>Doc</span></div></a>
+        <a href="{"/"|url}"><div class="top-logo">{fa_icon name="cloud"}Cloud<span>Doc</span></div></a>
         <div class="top-menu">
             <ul>
-                <li><a href="#">{"О проекте"|lang}</a></li>
-                <li><a href="#">{"Для разработчиков"|lang}</a></li>
-                <li><a href="#">{"Новости"|lang}</a></li>
-                <li><a href="#">{"Контакты"|lang}</a></li>
+                <li><a href="{"/"|url}">{"О проекте"|lang}</a></li>
+                <li><a href="{"/"|url}">{"Для разработчиков"|lang}</a></li>
+                <li><a href="{"/"|url}">{"Новости"|lang}</a></li>
+                <li><a href="{"/"|url}">{"Контакты"|lang}</a></li>
             </ul>
         </div>
     </div>

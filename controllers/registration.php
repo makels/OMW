@@ -17,10 +17,9 @@ Class Controller_Registration Extends Controller_Base {
 
         // Breadcrumbs
         $breadcrumbs = array(
-            "home" => array("display" => $lang->translate("Главная"), "url" => "/"),
+            "home" => array("display" => $lang->translate("Главная"), "url" => $lang->url("/")),
             "registration" => array(
                 "display" => $lang->translate("Регистрация"),
-                "url" => $this->registry->get("lang")->prefix . "/registration",
                 "current" => 1)
         );
         $this->registry->set("breadcrumbs", $breadcrumbs);
