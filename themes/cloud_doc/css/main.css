@@ -124,10 +124,6 @@ header:hover {
     padding: 0;
 }
 
-.breadcrumbs-wrapper {
-    padding: 10px 20px;
-}
-
 .breadcrumbs-wrapper a {
     color: #3b5998;
 }
@@ -136,6 +132,7 @@ header:hover {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: inline-block;
 }
 
 .breadcrumbs-wrapper ul li {
@@ -143,11 +140,10 @@ header:hover {
 }
 
 section.main-content {
-    width: 800px;
+    width: 1200px;
     margin: 10px auto 20px auto;
-    padding: 20px 0;
+    padding: 10px;
     background-color: #fff;
-    box-shadow: 2px 2px 25px #777;
 }
 
 footer {

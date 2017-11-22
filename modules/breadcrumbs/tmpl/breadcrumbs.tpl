@@ -1,4 +1,5 @@
 {if $breadcrumbs}
+    <section class="main-content">
     <div class="breadcrumbs-wrapper">
         <ul>
         {foreach from = $breadcrumbs item = "item"}
@@ -10,4 +11,5 @@
         {/foreach}
         </ul>
     </div>
+    </section>
 {/if}
