@@ -84,6 +84,8 @@ header:hover {
     float: right;
     line-height: 50px;
     margin-right: 20px;
+    overflow: hidden;
+    height: 50px
 }
 
 .top-lang-info {
@@ -237,4 +239,17 @@ footer {
 #uLogin {
     padding: 10px;
     background-color: #ddd;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+.avatar img {
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+    border-radius: 20px;
 }

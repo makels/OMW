@@ -35,27 +35,22 @@ Class Controller_Login Extends Controller_Base {
 
         if(isset($_POST['token'])) {
             $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
-            $user = json_decode($s, true);
-            // Login
-            Http::redirect("/");
-            exit;
-        }
+            $user_data = json_decode($s, true);
+            $user = new User();
+            $user->login = $user_data["network"] . "_" . $user_data["uid"];
+            $user->social = $user_data["network"];
+            $user->auth();
+            if($user->is_logged()) {
+                $_SESSION["user"] = $user->toArray();
+                Http::redirect("/");
+                exit;
+            } else {
+                Http::redirect($lang->url("/registration"));
+                exit;
+            }
 
-        if(Http::post("action") == "login") $errors = $this->login();
+        }
         $smarty->assign("errors", $errors);
         $this->display("login");
     }
-
-    function login() {
-        $errors = array();
-        $lang = $this->registry->get("lang");
-        $smarty = $this->registry->get("smarty");
-
-
-        
-        return $errors;
-
-    }
-
-
 }

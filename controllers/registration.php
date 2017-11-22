@@ -11,6 +11,7 @@ Class Controller_Registration Extends Controller_Base {
     public $breadcrumbs = array();
 
     function index() {
+        $user = $this->registry->get("user");
         $smarty = $this->registry->get("smarty");
         $lang = $this->registry->get("lang");
         $lang_prefix = $lang->prefix;
@@ -35,20 +36,53 @@ Class Controller_Registration Extends Controller_Base {
 
         if(isset($_POST['token'])) {
             $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
-            $user = json_decode($s, true);
+            $social_user = json_decode($s, true);
             $model = DB::loadModel("users/user");
-            $user = $model->add(array(
-                "login" => $user['network'] . "_" . $user['uid'],
-                "display_name" => $user['last_name'] . " " . $user['first_name'],
-                "pass" => "",
-                "email" => "",
-                "is_admin" => 0
-            ));
+
+            $user_row_login = $model->getByLogin($social_user['network'] . "_" . $social_user['uid']);
+
+            if(is_null($user_row_login)) {
+                $model->add(array(
+                    "login" => $social_user['network'] . "_" . $social_user['uid'],
+                    "display_name" => $social_user['last_name'] . " " . $social_user['first_name'],
+                    "pass" => "",
+                    "email" => "",
+                    "is_admin" => 0
+                ));
+            }
+
+            $user->login = $social_user['network'] . "_" . $social_user['uid'];
+            $user->social = $social_user['network'];
+            $user->auth();
+            if($user->is_logged()) {
+                $_SESSION["user"] = $user->toArray();
+                Http::redirect("/");
+                exit;
+            } else {
+                $errors[] = $lang->translate("Неверный логин или пароль");
+            }
+
+
             Http::redirect("/");
             exit;
         }
 
-        if(Http::post("action") == "registration") $errors = $this->registration();
+        if(Http::post("action") == "registration") {
+            $errors = $this->registration();
+            if(count($errors) == 0) {
+                $user = new User();
+                $user->login = Http::post("email");
+                $user->password = Http::post("password");
+                $user->auth();
+                if(!is_null($user->is_logged())) {
+                    $_SESSION["user"] = $user->toArray();
+                    Http::redirect("/");
+                    exit;
+                } else {
+                    $errors[] = $lang->translate("Неверный логин или пароль");
+                }
+            }
+        }
         $smarty->assign("errors", $errors);
         $this->display("registration");
     }
@@ -77,12 +111,19 @@ Class Controller_Registration Extends Controller_Base {
         $smarty->assign("errors", $errors);
 
         if(count($errors) > 0) return $errors;
-
         $model = DB::loadModel("users/user");
+
+        $user_row_login = $model->getByLogin($email);
+        $user_row_email = $model->getByEmail($email);
+        if(!is_null($user_row_login) || !is_null($user_row_email)) {
+            $errors[] = $lang->translate("Такой email уже зарегистрирован");
+            return $errors;
+        }
+
         $user = $model->add(array(
-            "login" => $first_name,
+            "login" => $email,
             "display_name" => $last_name . " " . $first_name,
-            "pass" => md5($password),
+            "pass" => $password,
             "email" => $email,
             "is_admin" => 0
         ));

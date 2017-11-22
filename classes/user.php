@@ -10,6 +10,8 @@ Class User {
 
   public $id;
 
+  public $social = "";
+
   public $data;
 
   public $login;
@@ -17,6 +19,8 @@ Class User {
   public $password;
 
   public $display_name;
+
+  public $avatar;
 
   public $permissions;
 
@@ -35,14 +39,27 @@ Class User {
     $user_model = DB::loadModel("users/user");
     if($this->login != "" && $this->password != "") {
       $user_row = $user_model->getByLogin($this->login);
+      if(is_null($user_row)) return;
       if(md5($this->password) == $user_row["pass"]) {
         $this->is_admin = $user_row["su"] == 1;
         $this->display_name = $user_row["display_name"];
         $this->id = $user_row["id"];
+        $this->avatar = $user_row["avatar"];
         $this->data = $user_row;
-        $this->permissions = $this->getPermissions();
+        $this->permissions = $this->getPermissions($this->id);
         $this->logged = true;
       }
+    }
+    if($this->login != "" && $this->social != "") {
+      $user_row = $user_model->getByLogin($this->login);
+      if(is_null($user_row)) return;
+      $this->is_admin = $user_row["su"] == 1;
+      $this->display_name = $user_row["display_name"];
+      $this->avatar = $user_row["avatar"];
+      $this->id = $user_row["id"];
+      $this->data = $user_row;
+      $this->permissions = $this->getPermissions($this->id);
+      $this->logged = true;
     }
   }
 
@@ -90,6 +107,7 @@ Class User {
       "login" => $this->login,
       "password" => $this->password,
       "display_name" => $this->display_name,
+      "avatar" => $this->avatar,
       "group_name" => $this->group_name
     );
   }
@@ -103,6 +121,7 @@ Class User {
     $this->login = isset($data["login"]) ? $data["login"] : "";
     $this->password = isset($data["password"]) ? $data["password"] : "";
     $this->display_name = isset($data["display_name"]) ? $data["display_name"] : "";
+    $this->avatar = isset($data["avatar"]) ? $data["avatar"] : "";
     $this->group_name = isset($data["group_name"]) ? $data["group_name"] : "";
   }
 

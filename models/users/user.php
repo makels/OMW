@@ -20,6 +20,10 @@ Class Model_User extends DB {
     return $this->getRow("SELECT * FROM ".$this->table . " WHERE `name` = '" . $login . "'");
   }
 
+  public function getByEmail($email) {
+    return $this->getRow("SELECT * FROM ".$this->table . " WHERE `email` = '" . $email . "'");
+  }
+
   public function add($data) {
     $id = $this->insert("INSERT INTO " . $this->table . " (`name`,`display_name`,`pass`,`email`,`su`) VALUES ('".$data['login']."','".$data['display_name']."',md5('".$data['pass']."'), '".$data['email']."', ".$data['is_admin'].")");
 
@@ -37,6 +41,14 @@ Class Model_User extends DB {
 
   public function delete($id) {
     $this->execute("DELETE FROM " . $this->table . " WHERE `id` = " . $id);
+  }
+
+  public function get_permissions($id) {
+    $query = "SELECT gu.group_id, gp.permission_id, p.name, p.alias FROM `users_groups` gu
+                    LEFT JOIN `users_groups_permissions` gp ON gu.group_id = gp.group_id
+                    LEFT JOIN `users_permissions` p ON p.id = gp.permission_id
+                    WHERE gu.user_id = " . $id;
+    return $this->getRows($query);
   }
 
 }

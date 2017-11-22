@@ -38,6 +38,7 @@ $lang = new Lang();
 $registry->set ('lang', $lang);
 
 $user = new User();
+if(isset($_SESSION["user"])) $user->fromArray($_SESSION["user"]);
 $registry->set ('user', $user);
 
 $router = new Router($registry);
