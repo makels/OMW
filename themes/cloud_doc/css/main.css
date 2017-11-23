@@ -9,7 +9,7 @@ html {
 }
 
 a {
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 
@@ -25,6 +25,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 
 .header {
@@ -248,4 +249,8 @@ footer {
     width: 40px;
     margin-top: 5px;
     border-radius: 20px;
+}
+
+.copyright {
+    color: #fff;
 }
