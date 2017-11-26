@@ -1,0 +1,32 @@
+.module-title {
+    border: 1px solid #4e97cc;
+}
+
+.title-text {
+    float: left;
+    width: 150px;
+}
+
+.toolbox {
+    background-color: #4e97cc;
+    float: right;
+}
+
+.toolbox ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.toolbox ul li {
+    margin-right: 20px;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+}
+
+.workplace {
+    min-height: 600px;
+    border: 1px solid #4e97cc;
+    border-top: none;
+}

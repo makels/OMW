@@ -40,20 +40,23 @@ Class Router {
 
       $this->getModule($file, $module, $action, $args);
       if (is_readable($file) == false) {
-        die ('404 Not Found');
+        Http::redirect("/");
+        exit;
       }
       include ($file);
       $class = 'Module_' . $module;
       $mod = new $class($this->registry);
       if (is_callable(array($mod, $action)) == false) {
-        die ('404 Not Found');
+        Http::redirect("/");
+        exit;
       }
       $mod->$action();
     } else {
       $this->getController($file, $controller, $action, $args);
 
       if (is_readable($file) == false) {
-        die ('404 Not Found');
+        Http::redirect("/");
+        exit;
       }
 
       include ($file);
@@ -61,7 +64,8 @@ Class Router {
 
       $controller = new $class($this->registry);
       if (is_callable(array($controller, $action)) == false) {
-        die ('404 Not Found');
+        Http::redirect("/");
+        exit;
       }
       $controller->$action();
     }

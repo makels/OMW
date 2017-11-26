@@ -292,6 +292,7 @@ footer {
 
 .module-title {
     background: #4e97cc;
+    height: 20px;
     padding: 10px;
     color: #fff;
 }
@@ -304,6 +305,10 @@ footer {
 
 .menu.module ul li {
     line-height: 30px;
+}
+
+.menu.module ul li.current a {
+    color: #9B410E;
 }
 
 .menu.module ul li a {

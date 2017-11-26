@@ -14,7 +14,7 @@ Class Module_Cabinet_Profile extends Module_Base
 
         if(Http::post("action") == "avatar") {
             $avatar = !is_null(Http::file("avatar")) ? FileManager::uploadAvatar($user->id, Http::file("avatar")) : $user->avatar;
-            $user->setAvatar($avatar);
+            if(!empty($avatar)) $user->setAvatar($avatar);
             $user->refresh();
         }
 
@@ -22,7 +22,7 @@ Class Module_Cabinet_Profile extends Module_Base
             $model = DB::loadModel("users/user");
             $data = array(
                 "id" => $user->id,
-                "name" => $user->login,
+                "login" => $user->login,
                 "display_name" => Http::post("first_name") . " " . Http::post("last_name"),
                 "first_name" => Http::post("first_name"),
                 "last_name" => Http::post("last_name"),

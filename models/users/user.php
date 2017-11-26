@@ -31,7 +31,7 @@ Class Model_User extends DB {
   }
 
   public function update($user_id, $data) {
-    $q = "UPDATE " . $this->table . " SET `name` = '" . $data['name'] . "',
+    $q = "UPDATE " . $this->table . " SET `name` = '" . $data['login'] . "',
                           `display_name` = '" . $data['display_name'] . "',
                           `first_name` = '" . $data['first_name'] . "',
                           `last_name` = '" . $data['last_name'] . "',
