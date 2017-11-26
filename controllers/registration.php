@@ -12,6 +12,7 @@ Class Controller_Registration Extends Controller_Base {
 
     function index() {
         $user = $this->registry->get("user");
+        $messages = $this->registry->get("messages");
         $smarty = $this->registry->get("smarty");
         $lang = $this->registry->get("lang");
         $lang_prefix = $lang->prefix;
@@ -32,8 +33,6 @@ Class Controller_Registration Extends Controller_Base {
         $smarty->assign("select_lang", $this->renderModule("lang/select_lang"));
         $smarty->assign("page", "registration");
 
-        $errors = array();
-
         if(isset($_POST['token'])) {
             $s = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
             $social_user = json_decode($s, true);
@@ -44,7 +43,9 @@ Class Controller_Registration Extends Controller_Base {
             if(is_null($user_row_login)) {
                 $model->add(array(
                     "login" => $social_user['network'] . "_" . $social_user['uid'],
-                    "display_name" => $social_user['last_name'] . " " . $social_user['first_name'],
+                    "first_name" => $social_user['first_name'],
+                    "last_name" => $social_user['last_name'],
+                    "display_name" => $social_user['first_name'] . " " . $social_user['last_name'],
                     "pass" => "",
                     "email" => "",
                     "is_admin" => 0
@@ -56,10 +57,10 @@ Class Controller_Registration Extends Controller_Base {
             $user->auth();
             if($user->is_logged()) {
                 $_SESSION["user"] = $user->toArray();
-                Http::redirect("/");
+                Http::redirect("/cabinet");
                 exit;
             } else {
-                $errors[] = $lang->translate("Неверный логин или пароль");
+                $messages->add($lang->translate("Неверный логин или пароль"));
             }
 
 
@@ -68,27 +69,26 @@ Class Controller_Registration Extends Controller_Base {
         }
 
         if(Http::post("action") == "registration") {
-            $errors = $this->registration();
-            if(count($errors) == 0) {
+            $this->registration();
+            if(count($messages->items) == 0) {
                 $user = new User();
                 $user->login = Http::post("email");
                 $user->password = Http::post("password");
                 $user->auth();
                 if(!is_null($user->is_logged())) {
                     $_SESSION["user"] = $user->toArray();
-                    Http::redirect("/");
+                    Http::redirect("/cabinet");
                     exit;
                 } else {
-                    $errors[] = $lang->translate("Неверный логин или пароль");
+                    $messages->add($lang->translate("Неверный логин или пароль"));
                 }
             }
         }
-        $smarty->assign("errors", $errors);
         $this->display("registration");
     }
 
     function registration() {
-        $errors = array();
+        $messages = $this->registry->get("messages");
         $lang = $this->registry->get("lang");
         $smarty = $this->registry->get("smarty");
 
@@ -102,34 +102,32 @@ Class Controller_Registration Extends Controller_Base {
         $smarty->assign("email", $email);
         $smarty->assign("password", $password);
 
-        if($first_name == "") $errors[] = $lang->translate("Вы не указали имя");
-        if($last_name == "") $errors[] = $lang->translate("Вы не указали фамилию");
-        if($email == "") $errors[] = $lang->translate("Вы не указали email");
-        if($password == "") $errors[] = $lang->translate("Вы не указали пароль");
-        if(!Recaptcha::check()) $errors[] = $lang->translate("Вы не прошли проверку CAPTCHA");
+        if($first_name == "") $messages->add($lang->translate("Вы не указали имя"));
+        if($last_name == "") $messages->add($lang->translate("Вы не указали фамилию"));
+        if($email == "") $messages->add($lang->translate("Вы не указали email"));
+        if($password == "") $messages->add($lang->translate("Вы не указали пароль"));
+        if(!Recaptcha::check()) $messages->add($lang->translate("Вы не прошли проверку CAPTCHA"));
 
-        $smarty->assign("errors", $errors);
-
-        if(count($errors) > 0) return $errors;
+        if(count($messages->items) > 0) return;
         $model = DB::loadModel("users/user");
 
         $user_row_login = $model->getByLogin($email);
         $user_row_email = $model->getByEmail($email);
         if(!is_null($user_row_login) || !is_null($user_row_email)) {
-            $errors[] = $lang->translate("Такой email уже зарегистрирован");
-            return $errors;
+            $messages->add($lang->translate("Такой email уже зарегистрирован"));
+            return;
         }
 
         $user = $model->add(array(
             "login" => $email,
-            "display_name" => $last_name . " " . $first_name,
+            "first_name" => $first_name,
+            "last_name" => $last_name,
+            "display_name" => $first_name . " " . $last_name,
             "pass" => $password,
             "email" => $email,
             "is_admin" => 0
         ));
         $smarty->assign("user", $user);
-        return $errors;
-
     }
     
     

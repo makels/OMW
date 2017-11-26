@@ -1,18 +1,15 @@
-<script type="text/javascript" src="/modules/menu/js/menu_handler.js"></script>
-
-<div class="menu-tab gradient" onclick="mainMenuHandler.openMenu();">
-  {fa_icon name="reorder"}
-  <img src="/theme/images/menu-text.png" />
-</div>
-
 <div class="menu module">
-  <div class="module-title gradient">{fa_icon name="reorder"}Меню<div onclick="mainMenuHandler.closeMenu();" class="fa-btn">{fa_icon name="close"}</div></div>
-  <div class="module-wrapper">
+      <div class="module-title">{fa_icon name="reorder"}{"Кабинет"|lang}</div>
+      <div class="module-wrapper">
     <ul>
-      <li {if $page == "maps_search"} class="active" {/if}><a href="/maps_search">{fa_icon name="hand-o-right"}Адміністративний пошук</a></li>
-      <li {if $page == "maps_editor"} class="active" {/if}><a href="/maps_editor">{fa_icon name="hand-o-right"}Редактор</a></li>
-      <!--li {if $page == "maps_content"} class="active" {/if}><a href="/maps_content">{fa_icon name="hand-o-right"}Тематичний зміст</a></li>
-      <li {if $page == "maps_events"} class="active" {/if}><a href="/maps_events">{fa_icon name="hand-o-right"}Реєстрація подій</a></li-->
+      <li {if $page == "profile"} class="current" {/if}><a href="{"/cabinet/?page=profile"|url}">{fa_icon name="user"}{"Профиль"|lang}</a></li>
+      <li {if $page == "company"} class="current" {/if}><a href="{"/cabinet/?page=company"|url}">{fa_icon name="building"}{"Организация"|lang}</a></li>
+      <li {if $page == "documents"} class="current" {/if}><a href="{"/cabinet/?page=documents"|url}">{fa_icon name="briefcase"}{"Документы"|lang}</a></li>
+      <li {if $page == "dictionaries"} class="current" {/if}><a href="{"/cabinet/?page=dictionaries"|url}">{fa_icon name="book"}{"Справочники"|lang}</a></li>
+      <li {if $page == "constructor"} class="current" {/if}><a href="{"/cabinet/?page=constructor"|url}">{fa_icon name="cogs"}{"Конструктор"|lang}</a></li>
+      <li {if $page == "calendar"} class="current" {/if}><a href="{"/cabinet/?page=calendar"|url}">{fa_icon name="calendar"}{"Календарь"|lang}</a></li>
+      <li {if $page == "bills"} class="current" {/if}><a href="{"/cabinet/?page=bills"|url}">{fa_icon name="credit-card"}{"Счета"|lang}</a></li>
+      <li {if $page == "services"} class="current" {/if}><a href="{"/cabinet/?page=services"|url}">{fa_icon name="cog"}{"Услуги"|lang}</a></li>
     </ul>
   </div>
 </div>

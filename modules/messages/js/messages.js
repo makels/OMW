@@ -9,11 +9,16 @@ var Messages = {
             window.setTimeout(function() {
                 Messages.hide();
             }, 3000);
-        }, 2000);
+        }, 500);
     },
 
     hide: function() {
         $('.messages-wrapper').fadeTo( "slow" , 0);
+    },
+
+    alert: function(msg) {
+        $('.messages-wrapper').html(msg);
+        this.show();
     }
 
 }

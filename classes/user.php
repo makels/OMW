@@ -20,6 +20,12 @@ Class User {
 
   public $display_name;
 
+  public $first_name;
+
+  public $last_name;
+
+  public $email;
+
   public $avatar;
 
   public $permissions;
@@ -43,7 +49,10 @@ Class User {
       if(md5($this->password) == $user_row["pass"]) {
         $this->is_admin = $user_row["su"] == 1;
         $this->display_name = $user_row["display_name"];
+        $this->first_name = $user_row["first_name"];
+        $this->last_name = $user_row["last_name"];
         $this->id = $user_row["id"];
+        $this->email = $user_row["email"];
         $this->avatar = $user_row["avatar"];
         $this->data = $user_row;
         $this->permissions = $this->getPermissions($this->id);
@@ -55,6 +64,9 @@ Class User {
       if(is_null($user_row)) return;
       $this->is_admin = $user_row["su"] == 1;
       $this->display_name = $user_row["display_name"];
+      $this->first_name = $user_row["first_name"];
+      $this->last_name = $user_row["last_name"];
+      $this->email = $user_row["email"];
       $this->avatar = $user_row["avatar"];
       $this->id = $user_row["id"];
       $this->data = $user_row;
@@ -111,7 +123,10 @@ Class User {
       "login" => $this->login,
       "password" => $this->password,
       "display_name" => $this->display_name,
+      "first_name" => $this->first_name,
+      "last_name" => $this->last_name,
       "avatar" => $this->avatar,
+      "email" => $this->email,
       "group_name" => $this->group_name
     );
   }
@@ -125,7 +140,10 @@ Class User {
     $this->login = isset($data["login"]) ? $data["login"] : "";
     $this->password = isset($data["password"]) ? $data["password"] : "";
     $this->display_name = isset($data["display_name"]) ? $data["display_name"] : "";
+    $this->first_name = isset($data["first_name"]) ? $data["first_name"] : "";
+    $this->last_name = isset($data["last_name"]) ? $data["last_name"] : "";
     $this->avatar = isset($data["avatar"]) ? $data["avatar"] : "";
+    $this->email = isset($data["email"]) ? $data["email"] : "";
     $this->group_name = isset($data["group_name"]) ? $data["group_name"] : "";
   }
 
@@ -133,5 +151,19 @@ Class User {
     global $registry;
     $registry->set('user', $this);
     $_SESSION['user'] = $this->toArray();
+  }
+
+  public function setAvatar($avatar) {
+    $user_model = DB::loadModel("users/user");
+    $user_model->setAvatar($this->id, $avatar);
+  }
+
+  public function refresh() {
+    if(!$this->is_auth()) return;
+    $user_model = DB::loadModel("users/user");
+    $data = $user_model->get($this->id);
+    $this->fromArray($data);
+    $this->logged = true;
+    $this->setCurrent();
   }
 }

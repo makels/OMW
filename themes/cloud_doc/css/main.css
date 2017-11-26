@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    background-color: #3b5998;
+    background-color: #4e97cc;
     height: 50px;
     color: #fff;
     position: fixed;
@@ -135,7 +135,7 @@ header:hover {
 }
 
 .breadcrumbs-wrapper a {
-    color: #3b5998;
+    color: #4e97cc;
 }
 
 .breadcrumbs-wrapper ul {
@@ -156,9 +156,16 @@ section.main-content {
     background-color: #fff;
 }
 
+section.main-content.index {
+    width: 900px;
+}
+
 footer {
-    height: 200px;
-    background-color: #3b5998;
+    background-color: #4e97cc;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    opacity: 0;
 }
 
 .flag {
@@ -193,7 +200,7 @@ footer {
 .btn {
     margin-top: 23px;
     margin-right: 20px;
-    background-color: #3b5998;
+    background-color: #4e97cc;
     padding: 10px;
     color: #fff !important;
     border-radius: 5px;
@@ -216,6 +223,7 @@ footer {
 
 .field input {
     width: 100%;
+    padding-left: 10px;
     line-height: 30px;
     border: none;
     border-bottom: 1px solid #999;
@@ -266,17 +274,89 @@ footer {
 
 .messages-wrapper {
     opacity: 0;
-    padding: 15px;
-    background: #e27f28;
+    padding: 10px;
+    background: #4CAF50;
     color: #fff;
     border-radius: 10px;
     position: fixed;
     top: 60px;
-    right: 10px;
+    right: 20px;
+    box-shadow: 5px 5px 25px #333;
 }
 
 .messages-wrapper ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.module-title {
+    background: #4e97cc;
+    padding: 10px;
+    color: #fff;
+}
+
+.menu.module ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.menu.module ul li {
+    line-height: 30px;
+}
+
+.menu.module ul li a {
+    color: #4e97cc;
+    text-decoration: none;
+}
+
+.row {
+    display: inline-block;
+}
+
+.left_side {
+    width: 180px;
+    margin-right: 10px;
+    float: left;
+}
+
+.center_side {
+    width: 1010px;
+    float: left;
+}
+
+.module-wrapper {
+    padding: 10px;
+    position: relative;
+}
+
+.module.profile form {
+    width: 400px;
+    margin-left: 300px;
+}
+
+.profile_avatar {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100px;
+    left: 50px;
+    top: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+.header_avatar {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
 }

@@ -12,6 +12,7 @@ Class Controller_Login Extends Controller_Base {
 
     function index() {
         $smarty = $this->registry->get("smarty");
+        $messages = $this->registry->get("messages");
         $lang = $this->registry->get("lang");
         $lang_prefix = $lang->prefix;
 
@@ -42,7 +43,7 @@ Class Controller_Login Extends Controller_Base {
             $user->auth();
             if($user->is_logged()) {
                 $_SESSION["user"] = $user->toArray();
-                Http::redirect("/");
+                Http::redirect("/cabinet");
                 exit;
             } else {
                 Http::redirect($lang->url("/registration"));
@@ -50,6 +51,21 @@ Class Controller_Login Extends Controller_Base {
             }
 
         }
+
+        if(isset($_POST["action"]) && $_POST["action"] == "login") {
+            $user = new User();
+            $user->login = Http::post("email");
+            $user->password = Http::post("password");
+            $user->auth();
+            if(!is_null($user->is_logged())) {
+                $_SESSION["user"] = $user->toArray();
+                Http::redirect("/cabinet");
+                exit;
+            } else {
+                $messages->add($lang->translate("Неверный логин или пароль"));
+            }
+        }
+
         $smarty->assign("errors", $errors);
         $this->display("login");
     }

@@ -30,6 +30,9 @@ define ('RECAPTCHA_SECRET', $config->get("/settings/recaptcha/secret_key"));
 define ('UPLOAD_DIR', SITE_PATH . "uploads/");
 define ('CLASSES_DIR', SITE_PATH . "classes/");
 
+// STORAGE
+define ('STORAGE', SITE_PATH . "storage/");
+
 // YANDEX TRANSLATE
 define("YANDEX_API", "trnsl.1.1.20171109T072239Z.85bec23fbbb9de50.9f1f93e5dc936d948e337102c08cc4e7db50ecf3");
 define("YA_TRANSLATE_URL", "https://translate.yandex.net/api/v1.5/tr.json/translate?lang=%s-%s&key=" . YANDEX_API);

@@ -25,8 +25,8 @@
                 {/foreach}
             </div>
         {/if}
-        <form method="post">
-            <input type="hidden" name="action" value="registration" />
+        <form method="post" autocomplete="off">
+            <input type="hidden" name="action" value="login" />
             <div class="fields-group">
                 <div class="field">
                     <label>Email:</label><br>

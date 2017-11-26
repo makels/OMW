@@ -446,7 +446,7 @@ footer {
 footer .inline-list {
 	line-height: 45px;
 	list-style: none;
-	float: right;
+	padding: 0;
 }
 
 footer .inline-list li {

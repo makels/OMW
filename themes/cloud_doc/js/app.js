@@ -19,7 +19,12 @@ var App = function() {
             } else {
                 $("header").css({opacity: 1});
             }
+            if($(window).scrollTop() + $(window).height() > ($(document).height()  - 100)) $("footer").css({opacity: 1});
+            else $("footer").css({opacity: 0});
         });
+
+        if($(window).scrollTop() + $(window).height() > ($(document).height()  - 100)) $("footer").css({opacity: 1});
+        else $("footer").css({opacity: 0});
     }
 
 }

@@ -36,7 +36,6 @@ Class Router {
   {
     $route = !empty($_GET["route"]) ? $_GET["route"] : "";
     $parts = explode("/", $route);
-
     if(count($parts) > 0 && $parts[0] == "modules") {
 
       $this->getModule($file, $module, $action, $args);

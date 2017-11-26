@@ -25,18 +25,22 @@ Class Model_User extends DB {
   }
 
   public function add($data) {
-    $id = $this->insert("INSERT INTO " . $this->table . " (`name`,`display_name`,`pass`,`email`,`su`) VALUES ('".$data['login']."','".$data['display_name']."',md5('".$data['pass']."'), '".$data['email']."', ".$data['is_admin'].")");
+    $id = $this->insert("INSERT INTO " . $this->table . " (`name`,`display_name`,`first_name`,`last_name`,`pass`,`email`,`su`) VALUES ('".$data['login']."','".$data['display_name']."','" . $data["first_name"] . "','" . $data["last_name"] . "', md5('".$data['pass']."'), '".$data['email']."', ".$data['is_admin'].")");
 
     return $this->get($id);
   }
 
   public function update($user_id, $data) {
-    $this->execute("UPDATE " . $this->table . " SET `name` = '" . $data['name'] . "',
+    $q = "UPDATE " . $this->table . " SET `name` = '" . $data['name'] . "',
                           `display_name` = '" . $data['display_name'] . "',
+                          `first_name` = '" . $data['first_name'] . "',
+                          `last_name` = '" . $data['last_name'] . "',
                           `email` = '" . $data['email'] . "',
-                           `su` = " . $data['is_admin'] . " WHERE id = " . $user_id);
-    if($data['pass'] != '')
-      $this->execute("UPDATE " . $this->table . " SET `pass` = md5('" . $data["pass"] . "') WHERE `id` = " . $user_id);
+                          `avatar` = '" . $data['avatar'] . "',
+                           `su` = " . $data['is_admin'] . " WHERE id = " . $user_id;
+    $this->execute($q);
+    if($data['password'] != '')
+      $this->execute("UPDATE " . $this->table . " SET `pass` = md5('" . $data["password"] . "') WHERE `id` = " . $user_id);
   }
 
   public function delete($id) {
@@ -49,6 +53,10 @@ Class Model_User extends DB {
                     LEFT JOIN `users_permissions` p ON p.id = gp.permission_id
                     WHERE gu.user_id = " . $id;
     return $this->getRows($query);
+  }
+
+  public function setAvatar($id, $avatar) {
+    $this->execute("UPDATE " . $this->table . " SET `avatar` = '" . $avatar . "' WHERE `id` = " . $id);
   }
 
 }

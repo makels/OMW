@@ -11,7 +11,7 @@
     {include file="header.tpl"}
 
     {* INDEX *}
-    <section class="main-content">
+    <section class="main-content index">
       <div class="row">
         <div class="large-6 columns">
           <div id="teaser-slider-2">

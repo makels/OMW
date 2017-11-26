@@ -6,7 +6,8 @@
                 <li><a href="{"/"|url}">{"О проекте"|lang}</a></li>
                 <li><a href="{"/"|url}">{"Для разработчиков"|lang}</a></li>
                 <li><a href="{"/"|url}">{"Новости"|lang}</a></li>
-                <li><a href="{"/"|url}">{"Контакты"|lang}</a></li>
+                <li><a href="{"/cabinet"|url}">{"Кабинет"|lang}</a></li>
+
             </ul>
         </div>
     </div>
