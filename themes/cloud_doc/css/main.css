@@ -1,15 +1,14 @@
 @font-face {
-    font-family: "ProximaNova";
+    font-family: 'Noto Sans', sans-serif;
     src: url(/themes/cloud_doc/fonts/ProximaNova-Reg.otf);
 }
 html {
-    font-family: "ProximaNova", serif;
-    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
     color: #333;
 }
 
 a {
-    color: #fff !important;
     text-decoration: none;
 }
 
@@ -47,6 +46,7 @@ header:hover {
     float: left;
     line-height: 50px;
     font-weight: bold;
+    color: #FFF;
 }
 
 .top-logo .fa-cloud {
@@ -87,6 +87,15 @@ header:hover {
     margin-right: 20px;
     overflow: hidden;
     height: 50px
+}
+
+.top-user-info a {
+    color: #fff;
+}
+
+.top-user-info a:hover {
+    text-decoration: underline;
+    color: #FFC107;
 }
 
 .top-lang-info {
@@ -253,4 +262,21 @@ footer {
 
 .copyright {
     color: #fff;
+}
+
+.messages-wrapper {
+    opacity: 0;
+    padding: 15px;
+    background: #e27f28;
+    color: #fff;
+    border-radius: 10px;
+    position: fixed;
+    top: 60px;
+    right: 10px;
+}
+
+.messages-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

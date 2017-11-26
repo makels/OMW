@@ -2,6 +2,9 @@
 <html class="no-js" lang="ru">
   <head>
     {include file="head.tpl"}
+    <link rel="stylesheet" href="/themes/{$smarty.const.THEME_NAME}/css/foundation.min.css" />
+    <link rel="stylesheet" href="/themes/{$smarty.const.THEME_NAME}/css/ie.css" />
+    <script src="/themes/{$smarty.const.THEME_NAME}/js/vendor/custom.modernizr.js"></script>
   </head>
   <body class="page">
     {* HEADER *}

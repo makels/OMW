@@ -83,6 +83,10 @@ Class User {
     return $this->logged === true || $this->logged == 1 ? true : null;
   }
 
+  public function is_auth() {
+    return $this->logged === true || $this->logged == 1 ? true : null;
+  }
+
   public function getPermissions() {
     $user_model = DB::loadModel("users/user");
     $permissions = $user_model->get_permissions($this->id);

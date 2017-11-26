@@ -6,7 +6,7 @@
             {if $item.current}
                 <li>{$item.display}</li>
             {else}
-                <li><a href="{$item.url}">{$item.display}</a>&nbsp;{fa_icon name="caret-right"}</li>
+                <li><a href="{$item.url}">{$item.display}</a>&nbsp;&nbsp;{fa_icon name="caret-right"}&nbsp;</li>
             {/if}
         {/foreach}
         </ul>

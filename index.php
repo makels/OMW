@@ -59,4 +59,7 @@ $smarty->assign("system_config", json_encode($system_config->getAll()));
 $smarty->assign("current_theme", $system_config->get("/settings/view/color"));
 $smarty->assign("controller", $registry->get("controller"));
 
+$messages = new Messages();
+$registry->set("messages", $messages);
+
 $router->delegate();

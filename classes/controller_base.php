@@ -28,10 +28,11 @@ Abstract Class Controller_Base {
   function display($template = "index") {
 
     $smarty = $this->registry->get("smarty");
-
+    $this->registerModule("messages/messages", "footer_side");
     $smarty->assign('left_side', $this->renderModules("left_side"));
     $smarty->assign('right_side', $this->renderModules("right_side"));
     $smarty->assign('center_side', $this->renderModules("center_side"));
+    $smarty->assign('footer_side', $this->renderModules("footer_side"));
     $smarty->assign('user', $this->registry->get('user'));
 
     $smarty->display(TMPL_PATH . $template . ".tpl");
@@ -60,7 +61,8 @@ Abstract Class Controller_Base {
   }
 
   function registerModule($name, $position) {
-    $class_name = ucfirst(end(explode("/", $name)));
+    $s = explode("/", $name);
+    $class_name = ucfirst(end($s));
     $module_file = MODULES_PATH.mb_strtolower($name).".php";
     $module_name = "Module_".$class_name;
     if(file_exists($module_file)) {

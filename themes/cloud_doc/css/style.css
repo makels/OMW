@@ -441,11 +441,19 @@ a:hover, a:focus {
 
 /* Footer */
 footer {
-	padding: 20px 0 0;
+	padding: 20px 10px;
 }
 footer .inline-list {
 	line-height: 45px;
+	list-style: none;
+	float: right;
 }
+
+footer .inline-list li {
+	float: left;
+	margin-right: 10px;
+}
+
 footer a.icon {
 	color: #CCC !important;
 	font-size: 40px;

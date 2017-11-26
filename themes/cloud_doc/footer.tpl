@@ -1,10 +1,7 @@
 <footer>
     <div class="row">
         <div class="large-6 columns">
-            <ul class="inline-list">
-                <li class="copyright">2017 &copy; Zerg Solutions</a></li>
-
-            </ul>
+            <span class="copyright">2017 &copy; Zerg Solutions</a></span>
         </div>
         <div class="large-6 columns">
             <ul class="inline-list social-media right">
@@ -22,4 +19,5 @@
     <link rel="stylesheet" href="/themes/{$smarty.const.THEME_NAME}/css/flexslider.css"> <!-- Flex slider -->
     <script src="/themes/{$smarty.const.THEME_NAME}/js/jquery.flexslider.js" type="text/javascript"></script><!-- Flex slider -->
     <script type="text/javascript" src="/themes/{$smarty.const.THEME_NAME}/js/custom.js"></script>
+    {$footer_side}
 </footer>
