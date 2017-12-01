@@ -1,0 +1,9 @@
+.workplace td {
+    border-right: 1px dotted #aaa;
+    border-bottom: 1px dotted #aaa;
+    cursor: cell;
+}
+
+.workplace td.active {
+    border: 1px solid #333;
+}

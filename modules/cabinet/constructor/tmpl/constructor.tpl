@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="/modules/cabinet/constructor/css/constructor.css" />
+<link rel="stylesheet" href="/modules/cabinet/constructor/css/zdoc.css" />
+<script type="text/javascript" src="/modules/cabinet/constructor/js/zcell.js"></script>
+<script type="text/javascript" src="/modules/cabinet/constructor/js/zdoc.js"></script>
 <script type="text/javascript" src="/modules/cabinet/constructor/js/constructor.js"></script>
 <div class="profile module">
     <div class="module-title">
