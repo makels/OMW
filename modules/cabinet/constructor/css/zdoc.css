@@ -1,9 +1,22 @@
 .workplace td {
-    border-right: 1px dotted #aaa;
-    border-bottom: 1px dotted #aaa;
+    border: 1px solid #dadcdd;
     cursor: cell;
 }
 
 .workplace td.active {
-    border: 1px solid #333;
+    border: 1px double #333;
+    border-collapse: collapse;
+}
+
+.horisontal-numeric {
+    background-color: #dfe3e8;
+    position: fixed;
+    padding-left: 40px;
+}
+
+.horisontal-numeric td {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #dfe3e8;
+    border: 1px solid #b1b5ba;
 }

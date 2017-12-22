@@ -28,6 +28,16 @@ var TplEditor = function() {
             $(this).addClass("active");
         });
 
+        $(window).resize(function() {
+            scope.resize();
+        });
+
+        this.resize();
+
+    }
+
+    this.resize = function() {
+        
     }
 
 }

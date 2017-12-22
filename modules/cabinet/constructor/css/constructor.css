@@ -2,6 +2,15 @@
     border: 1px solid #4e97cc;
 }
 
+.constructor .module-wrapper {
+    position: relative;
+    overflow: scroll;
+    height: 600px;
+    border: 1px solid #4e97cc;
+    border-top: none;
+    padding: 20px 0 0 40px;
+}
+
 .title-text {
     float: left;
     width: 150px;
@@ -26,8 +35,8 @@
 }
 
 .workplace {
-    overflow: scroll;
-    height: 600px;
-    border: 1px solid #4e97cc;
-    border-top: none;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
+

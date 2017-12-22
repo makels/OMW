@@ -3,7 +3,7 @@
 <script type="text/javascript" src="/modules/cabinet/constructor/js/zcell.js"></script>
 <script type="text/javascript" src="/modules/cabinet/constructor/js/zdoc.js"></script>
 <script type="text/javascript" src="/modules/cabinet/constructor/js/constructor.js"></script>
-<div class="profile module">
+<div class="constructor module">
     <div class="module-title">
         <div class="title-text">{fa_icon name="reorder"}{"Конструктор"|lang}</div>
         <div class="toolbox">

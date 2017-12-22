@@ -8,7 +8,7 @@ var ZCell = function(r, c) {
         col: c
     }
 
-    this.width = 80;
+    this.width = 65;
 
     this.height = 20;
 
